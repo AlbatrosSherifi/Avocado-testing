@@ -1,19 +1,14 @@
 package pages;
 
-import lombok.AccessLevel;
 import lombok.Getter;
-import lombok.experimental.FieldDefaults;
 import net.serenitybdd.core.annotations.findby.FindBy;
-import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 
-/**
- * Created by Ardit Podrimaj
- */
-
 @Getter
-@FieldDefaults(level = AccessLevel.PRIVATE)
-public class LoginPage extends AbstractPage {
+public class SignUpPage extends AbstractPage {
+
+    @FindBy(id = "name")
+    WebElementFacade nameInput;
 
     @FindBy(id = "email")
     WebElementFacade emailInput;
@@ -21,6 +16,9 @@ public class LoginPage extends AbstractPage {
     @FindBy(id = "password")
     WebElementFacade passwordInput;
 
+    @FindBy(id = "password_confirmation")
+    WebElementFacade passwordConfirmationInput;
+
     @FindBy(css = ".button.is-success")
-    WebElementFacade loginButton;
+    WebElementFacade registerButton;
 }

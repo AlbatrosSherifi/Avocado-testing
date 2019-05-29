@@ -4,6 +4,7 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.experimental.FieldDefaults;
 import net.thucydides.core.steps.ScenarioSteps;
+import pages.HomePage;
 import pages.LoginPage;
 
 /**
@@ -15,10 +16,11 @@ import pages.LoginPage;
 public class LoginSteps extends ScenarioSteps {
 
     LoginPage loginPage;
+    HomePage homePage;
 
-    public void login(){
-        loginPage.getEmailInput().type("your@email.com");
-        loginPage.getPasswordInput().type("your.password");
-        loginPage.getLoginButton().click();
+    public void login(String email, String password){
+        loginPage.waitForVisibility(loginPage.getEmailInput()).type(email);
+        loginPage.waitForVisibility(loginPage.getPasswordInput()).type(password);
+        loginPage.waitForVisibility(loginPage.getLoginButton()).click();
     }
 }
